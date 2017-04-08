@@ -37,6 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'llegaryjugar',
+    'llegaryjugar.apps.canchas',
+    'llegaryjugar.apps.estado_canchas',
+    'llegaryjugar.apps.estado_reservacion',
+    'llegaryjugar.apps.horarios',
+    'llegaryjugar.apps.medio_de_pago',
+    'llegaryjugar.apps.recinto',
+    'llegaryjugar.apps.reservacion',
+    'llegaryjugar.apps.roles',
+    'llegaryjugar.apps.servicios',
 ]
 
 MIDDLEWARE_CLASSES = [
