@@ -39,15 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'llegaryjugar',
-    'llegaryjugar.apps.canchas',
-    'llegaryjugar.apps.estado_canchas',
-    'llegaryjugar.apps.estado_reservacion',
-    'llegaryjugar.apps.horarios',
-    'llegaryjugar.apps.medio_de_pago',
-    'llegaryjugar.apps.recinto',
-    'llegaryjugar.apps.reservacion',
+    'llegaryjugar.apps.clubs',
+    'llegaryjugar.apps.courts',
+    'llegaryjugar.apps.courts_status',
+    'llegaryjugar.apps.payment_methods',
+    'llegaryjugar.apps.reservations',
+    'llegaryjugar.apps.reservations_status',
+    'llegaryjugar.apps.schedules',
     'llegaryjugar.apps.roles',
-    'llegaryjugar.apps.servicios',
+    'llegaryjugar.apps.services',
+
+    'phonenumber_field',
 ]
 
 MIDDLEWARE_CLASSES = [
