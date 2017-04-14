@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+from django.utils.translation import ugettext as _
+
+
+class Court_status(models.Model):
+	name = models.CharField(_('name'), max_length=50)
