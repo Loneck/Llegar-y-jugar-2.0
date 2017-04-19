@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Courts
 
-# Register your models here.
+@admin.register(Courts)
+class CourtsAdmin(BaseAdmin):
+    pass
+    list_display = ('club','status', 'name', 'number')

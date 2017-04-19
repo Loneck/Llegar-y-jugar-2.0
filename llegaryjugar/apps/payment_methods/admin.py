@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import PaymentMethods
 
-# Register your models here.
+@admin.register(PaymentMethods)
+class PaymentMethodsAdmin(BaseAdmin):
+    pass
+    list_display = ('name','status')

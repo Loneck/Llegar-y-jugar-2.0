@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Servicesvices
 
-# Register your models here.
+@admin.register(Services)
+class ServicesAdmin(BaseAdmin):
+    pass
+    list_display = ('name','price')

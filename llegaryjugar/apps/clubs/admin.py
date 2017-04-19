@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Clubs
 
-# Register your models here.
+@admin.register(Clubs)
+class ClubsAdmin(BaseAdmin):
+    pass
+    list_display = ('name','address', 'phone_number')
