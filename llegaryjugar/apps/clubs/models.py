@@ -1,10 +1,11 @@
 from django.db import models
 
 from django.utils.translation import ugettext as _
+from llegaryjugar.apps.base.models import BaseModel
 from ajaximage.fields import AjaxImageField
 from phonenumber_field.modelfields import PhoneNumberField
 
-class Clubs(models.Model):
+class Clubs(BaseModel):
     name = models.CharField(_('name'), max_length=50)
     address = models.CharField(_('address'), max_length=50)
     description = models.TextField(_('description'))

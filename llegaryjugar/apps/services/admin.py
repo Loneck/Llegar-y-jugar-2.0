@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Servicesvices
+from llegaryjugar.apps.base.admin import BaseAdmin
+from .models import Services
 
 @admin.register(Services)
 class ServicesAdmin(BaseAdmin):

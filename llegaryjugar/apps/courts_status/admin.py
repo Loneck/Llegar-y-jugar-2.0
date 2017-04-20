@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import CourtsStatus
+from llegaryjugar.apps.base.admin import BaseAdmin
+from .models import CourtStatus
 
-@admin.register(CourtsStatus)
-class CourtsStatusAdmin(BaseAdmin):
+@admin.register(CourtStatus)
+class CourtStatusAdmin(BaseAdmin):
     pass
-    list_display = ('name')
+    list_display = ('name',)

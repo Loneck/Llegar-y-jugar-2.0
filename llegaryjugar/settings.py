@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'llegaryjugar',
+    'llegaryjugar.apps.base',
     'llegaryjugar.apps.clubs',
     'llegaryjugar.apps.courts',
     'llegaryjugar.apps.courts_status',
