@@ -5,4 +5,4 @@ from .models import ReservationsStatus
 @admin.register(ReservationsStatus)
 class ReservationsStatusAdmin(BaseAdmin):
     pass
-    list_display = ('name',)
+    list_display = ('status',)

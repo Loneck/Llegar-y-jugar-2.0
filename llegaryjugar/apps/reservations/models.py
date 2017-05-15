@@ -10,11 +10,11 @@ from llegaryjugar.apps.payment_methods.models import PaymentMethods
 from llegaryjugar.apps.services.models import Services 
 from llegaryjugar.apps.reservations_status.models import ReservationsStatus
 
-class Courts(BaseModel):
-	schedule = models.ForeignKey(Schedules, related_name='schedules', verbose_name=_('schedules'))
-	court = models.ForeignKey(Courts, related_name='courts', verbose_name=_('courts'))
+class Reservations(BaseModel):
+	schedule = models.ForeignKey(Schedules, related_name='res_schedules', verbose_name=_('schedules'))
+	court = models.ForeignKey(Courts, related_name='res_courts', verbose_name=_('courts'))
 	client = models.ForeignKey('auth.User')
-	payment = models.ForeignKey(PaymentMethods, related_name='payment', verbose_name=_('payment'))
-	service = models.ForeignKey(Services, related_name='service', verbose_name=_('service'))
-	status = models.ForeignKey(ReservationsStatus, related_name='reservations_status', verbose_name=_('reservations_status'))
+	payment = models.ForeignKey(PaymentMethods, related_name='res_payment', verbose_name=_('payment'))
+	service = models.ForeignKey(Services, related_name='res_service', verbose_name=_('service'))
+	status = models.ForeignKey(ReservationsStatus, related_name='res_reservationsStatus', verbose_name=_('reservationsStatus'))
 	createdDate = models.DateTimeField(default=timezone.now)

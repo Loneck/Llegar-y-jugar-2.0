@@ -29,10 +29,10 @@ class Migration(migrations.Migration):
                 ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
                 ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
                 ('court', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='courts', to='courts.Courts', verbose_name='courts')),
-                ('payment', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='payment', to='payment_methods.Payment_methods', verbose_name='payment')),
+                ('payment', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='payment', to='payment_methods.PaymentMethods', verbose_name='payment')),
                 ('schedule', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='schedules', to='schedules.Schedules', verbose_name='schedules')),
                 ('service', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='service', to='services.Services', verbose_name='service')),
-                ('status', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reservations_status', to='reservations_status.Reservations_status', verbose_name='reservations_status')),
+                ('status', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reservations_status', to='reservations_status.ReservationsStatus', verbose_name='reservations_status')),
             ],
         ),
     ]

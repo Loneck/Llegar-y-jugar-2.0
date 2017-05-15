@@ -5,4 +5,4 @@ from .models import CourtStatus
 @admin.register(CourtStatus)
 class CourtStatusAdmin(BaseAdmin):
     pass
-    list_display = ('name',)
+    list_display = ('status',)
