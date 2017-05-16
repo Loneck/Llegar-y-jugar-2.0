@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'llegaryjugar.apps.roles',
     'llegaryjugar.apps.services',
 
+    'django_extensions',
     'phonenumber_field',
 ]
 

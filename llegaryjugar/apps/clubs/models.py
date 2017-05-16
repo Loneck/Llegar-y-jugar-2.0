@@ -2,7 +2,6 @@ from django.db import models
 
 from django.utils.translation import ugettext as _
 from llegaryjugar.apps.base.models import BaseModel
-from ajaximage.fields import AjaxImageField
 from phonenumber_field.modelfields import PhoneNumberField
 
 class Clubs(BaseModel):
@@ -11,6 +10,6 @@ class Clubs(BaseModel):
     description = models.TextField(_('description'))
     phone_number = PhoneNumberField()
     mail = models.EmailField()
-    logo = AjaxImageField(_('image'), upload_to='clubs/logo/')
+    logo = models.ImageField(_('image'), upload_to='clubs/logo/')
     latitude = models.DecimalField(_('latitude'), decimal_places=6, max_digits=20)
     length = models.DecimalField(_('length'), decimal_places=6, max_digits=20)
