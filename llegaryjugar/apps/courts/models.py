@@ -10,3 +10,6 @@ class Courts(BaseModel):
 	status = models.ForeignKey(CourtStatus, related_name='court_status', verbose_name=_('status'))
 	name = models.CharField(_('name'), max_length=50)
 	number = models.CharField(_('number'), max_length=50)
+
+	def __str__(self):
+		return self.name

@@ -13,3 +13,6 @@ class Clubs(BaseModel):
     logo = models.ImageField(_('image'), upload_to='clubs/logo/')
     latitude = models.DecimalField(_('latitude'), decimal_places=6, max_digits=20)
     length = models.DecimalField(_('length'), decimal_places=6, max_digits=20)
+
+    def __str__(self):
+    	return self.name
