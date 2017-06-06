@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'llegaryjugar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'llyj',
+        'NAME': 'lleyju',
         'USER': 'loneck',
         'PASSWORD': '1q2w3e4r',
         'HOST':'localhost',
