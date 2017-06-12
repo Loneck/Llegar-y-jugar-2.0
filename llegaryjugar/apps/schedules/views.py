@@ -9,3 +9,7 @@ from .forms import SchedulesForm
 
 class SchedulesList(ListView):
     model = Schedules
+
+class SchedulesCreate(CreateView):
+    model = Schedules
+    fields = ['court', 'price', 'date', 'start_time', 'end_time']

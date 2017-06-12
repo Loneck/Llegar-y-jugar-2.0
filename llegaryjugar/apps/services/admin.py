@@ -4,5 +4,4 @@ from .models import Services
 
 @admin.register(Services)
 class ServicesAdmin(BaseAdmin):
-    pass
     list_display = ('name','price')

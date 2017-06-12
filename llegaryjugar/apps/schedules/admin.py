@@ -4,5 +4,4 @@ from .models import Schedules
 
 @admin.register(Schedules)
 class SchedulesAdmin(BaseAdmin):
-    pass
     list_display = ('court','date','start_time','end_time')
