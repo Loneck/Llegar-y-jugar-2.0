@@ -1,18 +1,31 @@
 {% extends "base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
-
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px;
+        }
+    </style>
     <h2>Here are all the schedules: </h2>
     <div>
-        <ul>
-            {% for schedules in object_list %}
-                <li>{{ schedules.court }} {{ schedules.date }} {{ schedules.start_time }} {{ schedules.end_time }} 
-                </li>
-            {% empty %}
-                <li>No schedules yet.</li>
-            {% endfor %}
+        <table>
+            <tr>
+                <th>Court</th>
+                <th>Date</th> 
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+            <tr>
+                {% for schedules in object_list %}
+                    <td>{{ schedules.court }}</td> <td>{{ schedules.date }}</td> <td>{{ schedules.start_time }}</td> <td>{{ schedules.end_time }}</td>
+                {% empty %}
+                    <li>No schedules yet.</li>
+                {% endfor %}
 
-        </ul>
+            </tr>
+        </table>
         <p>
             <a href="{% url 'schedules-add' %}">add a schedule</a>
         </p>
