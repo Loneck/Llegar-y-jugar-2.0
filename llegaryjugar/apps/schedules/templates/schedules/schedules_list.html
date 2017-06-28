@@ -2,11 +2,21 @@
 {% block title %}{% endblock %}
 {% block content %}
     <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 15px;
-        }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
     </style>
     <h2>Here are all the schedules: </h2>
     <div>
@@ -17,14 +27,13 @@
                 <th>Start Time</th>
                 <th>End Time</th>
             </tr>
-            <tr>
-                {% for schedules in object_list %}
-                    <td>{{ schedules.court }}</td> <td>{{ schedules.date }}</td> <td>{{ schedules.start_time }}</td> <td>{{ schedules.end_time }}</td>
+            {% for schedules in object_list %}
+            <tr>                
+                <td>{{ schedules.court }}</td> <td>{{ schedules.date }}</td> <td>{{ schedules.start_time }}</td> <td>{{ schedules.end_time }}</td>
                 {% empty %}
-                    <li>No schedules yet.</li>
-                {% endfor %}
-
+                <li>No schedules yet.</li>               
             </tr>
+            {% endfor %}
         </table>
         <p>
             <a href="{% url 'schedules-add' %}">add a schedule</a>
