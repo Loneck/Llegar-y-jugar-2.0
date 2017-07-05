@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'llegaryjugar.apps.schedules',
     'llegaryjugar.apps.roles',
     'llegaryjugar.apps.services',
+    'llegaryjugar.apps.dates',
 
     'django_extensions',
     'phonenumber_field',
@@ -70,7 +71,7 @@ ROOT_URLCONF = 'llegaryjugar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,4 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = os.getenv('STATIC_URL', '/static/')
+MEDIA_ROOT = os.getenv('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
+MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
+STATIC_ROOT = os.getenv('STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
