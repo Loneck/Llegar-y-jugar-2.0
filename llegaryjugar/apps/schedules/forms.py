@@ -30,6 +30,8 @@ class MultipleSchedulesForm(ModelForm):
 			'price',
 			'day',
 			'month',
+			'start_time',
+			'end_time',
 		]
 
 	def __init__(self, *args, **kwargs):
@@ -37,3 +39,5 @@ class MultipleSchedulesForm(ModelForm):
 	    self.fields['price'].widget.attrs['class'] = 'form-control'
 	    self.fields['day'].widget.attrs['class'] = 'form-control'
 	    self.fields['month'].widget.attrs['class'] = 'form-control'
+	    self.fields['start_time'].widget.attrs['class'] = 'form-control'
+	    self.fields['end_time'].widget.attrs['class'] = 'form-control'
