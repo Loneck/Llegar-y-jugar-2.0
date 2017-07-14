@@ -9,4 +9,4 @@ class SchedulesAdmin(BaseAdmin):
 
 @admin.register(SchedulesCreate)
 class SchedulesCreateAdmin(BaseAdmin):
-    list_display = ('author','price')
+    list_display = ('author','price', 'start_time', 'end_time')

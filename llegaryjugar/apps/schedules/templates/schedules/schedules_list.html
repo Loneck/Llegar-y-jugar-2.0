@@ -29,7 +29,10 @@
             </tr>
             {% for schedules in object_list %}
             <tr>                
-                <td>{{ schedules.court }}</td> <td>{{ schedules.date }}</td> <td>{{ schedules.start_time }}</td> <td>{{ schedules.end_time }}</td>
+                <td>{{ schedules.court }}</td>
+                <td>{{ schedules.date }}</td>
+                <td>{{ schedules.start_time }}</td>
+                <td>{{ schedules.end_time }}</td>
                 {% empty %}
                 <li>No schedules yet.</li>               
             </tr>

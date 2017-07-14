@@ -19,22 +19,30 @@ class SchedulesCreate(BaseModel):
 	price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
 	day = models.ManyToManyField(Day, verbose_name=_('day'))
 	month = models.ManyToManyField(Month, verbose_name=_('month'))
-	start_time = models.ForeignKey(Hour, related_name='start_time', default=True)
-	end_time = models.ForeignKey(Hour, related_name='end_time', default=True)
+	start_time = models.ForeignKey(Hour, related_name='start_time_hour', default=True)
+	end_time = models.ForeignKey(Hour, related_name='end_time_hour', default=True)
 
-	def create_schedules():
-		formato = '%H:%M'
+	def create_schedules(self):
+		format = '%H:%M'
 
-		start_time = raw_input('Insert Start Time(hh:mm): ')
-		end_time = raw_input('Insert End Time(hh:mm): ')	
+		start_time = self.start_time
+		end_time = self.end_time
 
 		start_time = datetime.strptime(start_time, formato)
 		end_time = datetime.strptime(end_time, formato)
 		diferencia = end_time - start_time
 
-		schedules_list=[]
+		schedules_list = []
 		while start_time <= end_time:
-			schedules_list.append(start_time)
+			schedules_list.extends(start_time)
 			start_time += timedelta(minutes=60)
+
+		
+		for x in range(len(schedules_list)):
+			if form.is_valid():
+				meter_el_author_en = author_schedules
+				meter_el_precio_en = price_schedules
+				meter_el_star_time_en = start_time_schedules
+				meter_el_precio_en = price_schedules
 
 		return 0
