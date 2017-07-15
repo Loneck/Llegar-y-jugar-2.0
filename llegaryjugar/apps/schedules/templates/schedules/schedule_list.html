@@ -23,16 +23,18 @@
         <table>
             <tr>
                 <th>Court</th>
-                <th>Date</th> 
+                <th>Date</th>
+                <th>Price</th>
                 <th>Start Time</th>
                 <th>End Time</th>
             </tr>
-            {% for schedules in object_list %}
+            {% for schedule in object_list %}
             <tr>                
-                <td>{{ schedules.court }}</td>
-                <td>{{ schedules.date }}</td>
-                <td>{{ schedules.start_time }}</td>
-                <td>{{ schedules.end_time }}</td>
+                <td>{{ schedule.court }}</td>
+                <td>{{ schedule.date }}</td>
+                <td>{{ schedule.price }}</td>
+                <td>{{ schedule.start_time }}</td>
+                <td>{{ schedule.end_time }}</td>
                 {% empty %}
                 <li>No schedules yet.</li>               
             </tr>

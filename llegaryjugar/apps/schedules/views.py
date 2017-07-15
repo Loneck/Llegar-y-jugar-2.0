@@ -4,12 +4,12 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 from django.http import HttpResponse
 
-from .models import Schedules, SchedulesCreate
+from .models import Schedule, SchedulesCreate
 from .forms import SchedulesForm, MultipleSchedulesForm
 # Create your views here.
 
-class SchedulesList(ListView):
-	model = Schedules
+class ScheduleList(ListView):
+	model = Schedule
 
 def SchedulesCreate(request):
 	if request.method == 'POST':
