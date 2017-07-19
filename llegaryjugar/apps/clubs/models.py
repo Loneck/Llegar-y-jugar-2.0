@@ -4,6 +4,7 @@ from django.utils.translation import ugettext as _
 from llegaryjugar.apps.base.models import BaseModel
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 class Clubs(BaseModel):
     name = models.CharField(_('name'), max_length=50)
     address = models.CharField(_('address'), max_length=50)
@@ -15,4 +16,4 @@ class Clubs(BaseModel):
     length = models.DecimalField(_('length'), decimal_places=6, max_digits=20)
 
     def __str__(self):
-    	return self.name
+        return self.name
