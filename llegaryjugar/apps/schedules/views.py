@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from .models import Schedule, SchedulesCreate
+from .models import Schedule
 from .forms import SchedulesForm, MultipleSchedulesForm
 # Create your views here.
 
 
-class ScheduleList(ListView):
+class Schedule_List(ListView):
     model = Schedule
 
 
-def SchedulesCreate(request):
+def Schedules_Create(request):
     if request.method == 'POST':
         form = SchedulesForm(request.POST)
         if form.is_valid():
@@ -21,7 +21,7 @@ def SchedulesCreate(request):
     return render(request, 'schedules/schedules_form.html', {'form': form})
 
 
-def MultipleSchedulesCreate(request):
+def Multiple_Schedules_Create(request):
     if request.method == 'POST':
         form = MultipleSchedulesForm(request.POST)
         if form.is_valid():

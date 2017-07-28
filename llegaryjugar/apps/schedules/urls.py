@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url
-from .views import ScheduleList, SchedulesCreate, MultipleSchedulesCreate
+from .views import Schedule_List, Schedules_Create, Multiple_Schedules_Create
 
 urlpatterns = [
-    url(r'^$', ScheduleList.as_view(), name='schedules-list'),
-    url(r'^add/$', SchedulesCreate, name='schedules-add'),
-    url(r'^multiple-add/$', MultipleSchedulesCreate, name='schedules-multiple-add'),
+    url(r'^$', Schedule_List.as_view(), name='schedules-list'),
+    url(r'^add/$', Schedules_Create, name='schedules-add'),
+    url(r'^multiple-add/$', Multiple_Schedules_Create, name='schedules-multiple-add'),
 ]
