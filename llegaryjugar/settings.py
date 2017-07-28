@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -86,6 +87,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'llegaryjugar.wsgi.application'
 
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -123,6 +126,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
+
+if DEBUG:
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    INTERNAL_IPS = ('127.0.0.1',)
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
 
 LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'es-CL')
 TIME_ZONE = os.getenv('TIME_ZONE', 'America/Santiago')
