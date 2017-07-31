@@ -2,5 +2,17 @@
 {% load staticfiles i18n %}
 
 {% block content %}
-<h2>Hola {{ object.user.username }}</h2>
+
+<ul class="row">
+<li class="col-sm-4">
+<div class="address-widget"></div>
+</li>
+<li class="col-sm-4">
+    <div class="address-widget">
+		</br><h2>Hola {{ user.username }}</h2></br>
+	</div>
+</li>
+</div>
+</li>
+</ul>
 {% endblock %}

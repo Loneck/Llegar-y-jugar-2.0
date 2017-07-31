@@ -46,10 +46,10 @@
 <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
 </ul>
 </li>
-<li class="login-modal">
+<li class="language-dropdown">
 	{% if user.is_authenticated %}
-		<a href="#" class="login" data-toggle="modal"><i class="fa fa-user"></i>{{ user.username }}</a>
-		<ul class="language-dropdown">
+		<a id="choses-lang" href="#" class="login" ><i class="fa fa-user"></i>{{ user.username }}<i class="fa fa-caret-down"></i></a>
+		<ul id="language-dropdown">
 			<li><a href="{% url 'auth_logout' %}">Cerrar Sesión</a></li>
 		</ul>
 	{% else %}
