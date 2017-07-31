@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^schedules/', include('llegaryjugar.apps.schedules.urls')),
+    url(r'^reservation/', include('llegaryjugar.apps.reservations.urls')),
 ]
 
 if settings.DEBUG:

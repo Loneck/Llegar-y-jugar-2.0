@@ -19,6 +19,9 @@ class Schedule(BaseModel):
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
 
+    def __str__(self):
+        return '%s %s' % (self.court, self.date)
+
 
 class SchedulesCreate(BaseModel):
     author = models.ForeignKey('auth.User')

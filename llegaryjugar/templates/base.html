@@ -47,66 +47,23 @@
 </ul>
 </li>
 <li class="login-modal">
-<a href="#" class="login" data-toggle="modal" data-target="#login-modal"><i class="fa fa-user"></i>member Login</a>
-<div class="modal fade" id="login-modal">
-<div class="login-form position-center-center">
-<h2>Login<button class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button></h2>
-<form>
-<div class="form-group">
-<input type="text" class="form-control" name="user" placeholder="domain@live.com">
-<i class=" fa fa-envelope"></i>
-</div>
-<div class="form-group">
-<input type="password" class="form-control" name="pass" placeholder="**********">
-<i class=" fa fa-lock"></i>
-</div>
-<div class="form-group custom-checkbox">
-<label>
-<input type="checkbox"> Stay login
-</label>
-<a class="pull-right forgot-password" href="#"></a>
-<a href="#" class="pull-right forgot-password" data-toggle="modal" data-target="#login-modal-2">Forgot password?</a>
-</div>
-<div class="form-group">
-<button class="btn full-width red-btn">Login</button>
-</div>
-</form>
-<span class="or-reprater"></span>
-<ul class="others-login-way">
-<li><a class="facebook-bg" href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-<li><a class="tweet-bg" href="#"><i class="fa fa-twitter"></i>Tweet</a></li>
-<li><a class="linkedin-bg" href="#"><i class="fa fa-linkedin"></i>Linkedin</a></li>
-<li><a class="google-plus-bg" href="#"><i class="fa fa-google-plus"></i>Google+</a></li>
-</ul>
-</div>
-</div>
-<div class="modal fade" id="login-modal-2">
-<div class="login-form position-center-center">
-<h2>Forgot password<button class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button></h2>
-<form>
-<div class="form-group">
-<input type="text" class="form-control" name="user" placeholder="domain@live.com">
-<i class=" fa fa-envelope"></i>
-</div>
-<div class="form-group">
-<input type="password" class="form-control" name="pass" placeholder="**********">
-<i class=" fa fa-lock"></i>
-</div>
-<div class="form-group">
-<button class="btn full-width red-btn">Login</button>
-</div>
-</form>
-</div>
-</div>
+	{% if user.is_authenticated %}
+		<a href="#" class="login" data-toggle="modal"><i class="fa fa-user"></i>{{ user.username }}</a>
+		<ul class="language-dropdown">
+			<li><a href="{% url 'auth_logout' %}">Cerrar Sesión</a></li>
+		</ul>
+	{% else %}
+		<a href="{% url 'auth_login' %}" class="login" data-toggle="modal"><i class="fa fa-user"></i>member Login</a>
+	{% endif %}
 </li>
 <li class="language-dropdown">
-<a id="choses-lang" href="#"><i class="fa fa-globe"></i>Eng<i class="fa fa-caret-down"></i></a>
-<ul id="language-dropdown">
-<li><a href="#"><img src="{% static 'images/flags/img-04.jpg' %}" alt="">ger</a></li>
-<li><a href="#"><img src="{% static 'images/flags/img-02.jpg' %}" alt="">fra</a></li>
-<li><a href="#"><img src="{% static 'images/flags/img-03.jpg' %}" alt="">bra</a></li>
-</ul>
-</li>
+	<a id="choses-lang" href="#"><i class="fa fa-globe"></i>Eng<i class="fa fa-caret-down"></i></a>
+	<ul id="language-dropdown">
+	<li><a href="#"><img src="{% static 'images/flags/img-04.jpg' %}" alt="">ger</a></li>
+	<li><a href="#"><img src="{% static 'images/flags/img-02.jpg' %}" alt="">fra</a></li>
+	<li><a href="#"><img src="{% static 'images/flags/img-03.jpg' %}" alt="">bra</a></li>
+	</ul>
+	</li>
 </ul>
  
 </div>
@@ -117,9 +74,9 @@
 <div class="container">
 <div class="maga-drop-wrap">
  
-<div class="logo">
+<!-- <div class="logo">
 <a href="home-1.html"><img src="{% static 'images/logo-4.png' %}" alt=""></a>
-</div>
+</div> -->
  
  
 <div class="search-bar-holder pull-right">
@@ -132,19 +89,15 @@
  
 <ul class="nav-list pull-right">
 <li>
-<a href="#">Home</a>
-<ul>
-<li><a href="home-1.html">Home 1</a></li>
-<li><a href="home-2.html">Home 2</a></li>
-</ul>
+<a href="{% url 'index' %}">Home</a>
 </li>
-<li><a href="about.html">about</a></li>
+<li><a href="#">about</a></li>
 <li>
-<a href="team.html">team</a>
+<a href="#">Schedules</a>
 <ul>
-<li><a href="team.html">team</a></li>
-<li><a href="team-detail.html">Team detail</a></li>
-<li><a href="team-width-sidebar.html">team-widthsidebar</a></li>
+<li><a href="{% url 'schedules-list' %}">Schedules List</a></li>
+<li><a href="{% url 'schedules-add' %}">Add Schedule</a></li>
+<li><a href="{% url 'schedules-multiple-add' %}">Multiple Add Schedule</a></li>
 </ul>
 </li>
 <li class="mega-dropdown">
@@ -155,13 +108,11 @@
 <div class="blog-categories">
 <h2>Blog Categories</h2>
 <ul class="blog-categories-list">
-<li><a href="#">Blog 1 Column (Right Sidebar)</a></li>
-<li><a href="#">Blog Medium With Right Sidebar</a></li>
-<li><a href="#">Masonry (Right Sidebar)</a></li>
-<li><a href="#">Blog 4 Columns</a></li>
-<li><a href="#">Blog 1 Column (Right Sidebar)</a></li>
-<li><a href="#">Masonry (Right Sidebar)</a></li>
-<li><a href="#">Blog 1 Column (Right Sidebar)</a></li>
+<li><a href="#">Blog 1</a></li>
+<li><a href="#">Blog 2</a></li>
+<li><a href="#">Blog 3</a></li>
+<li><a href="#">Blog 4</a></li>
+<li><a href="#">Blog 5</a></li>
 </ul>
 </div>
 </div>
@@ -176,7 +127,7 @@
  
  
 <div class="large-post-detail style-3 p-0">
-<span class="red-color">Englis FA Cup</span>
+<span class="red-color">English FA Cup</span>
 <h2>Man United reunion for Ibrahimovic,</h2>
 </div>
  
@@ -191,7 +142,7 @@
  
  
 <div class="large-post-detail style-3 p-0">
-<span class="red-color">Englis FA Cup</span>
+<span class="red-color">English FA Cup</span>
 <h2>Man United reunion for Ibrahimovic,</h2>
 </div>
  
@@ -206,7 +157,7 @@
  
  
 <div class="large-post-detail style-3 p-0">
-<span class="red-color">Englis FA Cup</span>
+<span class="red-color">English FA Cup</span>
 <h2>Man United reunion for Ibrahimovic,</h2>
 </div>
  
@@ -221,7 +172,7 @@
  
  
 <div class="large-post-detail style-3 p-0">
-<span class="red-color">Englis FA Cup</span>
+<span class="red-color">English FA Cup</span>
 <h2>Man United reunion for Ibrahimovic,</h2>
 </div>
  
@@ -236,7 +187,7 @@
  
  
 <div class="large-post-detail style-3 p-0">
-<span class="red-color">Englis FA Cup</span>
+<span class="red-color">English FA Cup</span>
 <h2>Man United reunion for Ibrahimovic,</h2>
 </div>
  
@@ -251,7 +202,7 @@
  
  
 <div class="large-post-detail style-3 p-0">
-<span class="red-color">Englis FA Cup</span>
+<span class="red-color">English FA Cup</span>
 <h2>Man United reunion for Ibrahimovic,</h2>
 </div>
  
@@ -265,35 +216,34 @@
 <li>
 <a href="#">Match</a>
 <ul>
-<li><a href="match.html">Match</a></li>
-<li><a href="match-detail.html">Match Detail</a></li>
-<li><a href="match-result.html">Match Result</a></li>
+<li><a href="#">Match</a></li>
+<li><a href="#">Match Search</a></li>
+<li><a href="#">Match Detail</a></li>
+<li><a href="#">Match Result</a></li>
 </ul>
 </li>
-<li>
+<!-- <li>
 <a href="#">shop</a>
 <ul>
-<li><a href="shop.html">shop</a></li>
-<li><a href="shop-detail.html">shop detail</a></li>
-<li><a href="cart.html">cart</a></li>
+<li><a href="#">shop</a></li>
+<li><a href="#">shop detail</a></li>
+<li><a href="#">cart</a></li>
 </ul>
-</li>
+</li> -->
 <li>
 <a href="#">pages</a>
 <ul>
-<li><a href="gallery.html">gallery</a></li>
-<li><a href="blog.html">blog</a></li>
-<li><a href="blog-detail.html">blog detail</a></li>
-<li><a href="blog-grid-view.html">blog grid view</a></li>
-<li><a href="blog-grid-view-2.html">blog grid view-2</a></li>
-<li><a href="blog-larg-view.html">blog larg view</a></li>
-<li><a href="blog-list-view.html">blog list view</a></li>
-<li><a href="point-table.html">point table</a></li>
-<li><a href="404.html">404</a></li>
-<li><a href="underconstraction.html">underconstraction</a></li>
+<li><a href="#">gallery</a></li>
+<li><a href="#">blog</a></li>
+<li><a href="#">blog detail</a></li>
+<!-- <li><a href="#">blog grid view</a></li>
+<li><a href="#">blog grid view-2</a></li>
+<li><a href="#">blog larg view</a></li>
+<li><a href="#">blog list view</a></li> -->
+<li><a href="#">point table</a></li>
 </ul>
 </li>
-<li><a href="contact.html">contact</a></li>
+<li><a href="{% url 'contact' %}">contact</a></li>
 </ul>
  
 </div>
@@ -1275,9 +1225,9 @@
 <div class="col-sm-4 col-xs-6 r-full-width-2 r-full-width">
 <div class="column-widget h-white">
 <div class="logo-column p-white">
-<img class="footer-logo" src="{% static 'images/footer-logo.png' %}" alt="">
+<!-- <img class="footer-logo" src="{% static 'images/footer-logo.png' %}" alt=""> -->
 <ul class="address-list style-2">
-<li><span>Address:</span>1782 Harrison Street Sun Prairie</li>
+<li><span>Address:</span>1234 Sunshine Street Sun Prairie</li>
 <li><span>Phone Number:</span>49 30 47373795</li>
 <li><span>Email Address:</span><a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="7815171116381a1411161c0c1d000c1f1d161d0a190c170a561c1d">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></li>
 </ul>
@@ -1334,7 +1284,7 @@
  
 <div class="copy-rights">
 <div class="container">
-<p>© Copyright by <i class="red-color">FineLayers</i> All rights reserved.</p>
+<p>© Copyright by <i class="red-color">Loneck</i> All rights reserved.</p>
 <a class="back-to-top scrollup" href="#"><i class="fa fa-angle-up"></i></a>
 </div>
 </div>

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="news" class="section wow fadeInUp">
+	<div class="container">		
+		<div class="section-heading">
+			<h2>Arriendos</h2>
+			<div class="separator"></div>						
+		</div>
+		<h2> Gracias por reservar con nosotros</h2>
+		<div class="well animated fadeInDown animation-delay-8">
+			<div class="panel-body">
+				<div class="row">
+					<h3>Resumen de arriendo</h3>
+					<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>Recinto</th>
+								<th>Horario</th>
+								<th>Precio</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Recinto</th>
+								<th>Horario</th>
+								<th>Precio</th>
+							</tr>
+						</tfoot>
+						<tbody>	
+							<tr>
+								<td>{{ reservation.club }}</td>
+								<td>{{ reservation.schedule }}</td>
+								<td>{{ reservation.price }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="clearfix"></div>
+				<hr>
+				<div class="col-xs-12 col-md-2">
+					<a href="/" class="btn btn-lg btn-primary btn-block">Nueva Reserva</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
