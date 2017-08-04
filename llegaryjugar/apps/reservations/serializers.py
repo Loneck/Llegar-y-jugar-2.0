@@ -4,7 +4,7 @@ from llegaryjugar.apps.schedules.models import Schedule
 # from .models import Reservation
 
 
-class ReservationSerializer(serializers.ModelSerializer):
+class ScheduleSerializer(serializers.ModelSerializer):
     court = serializers.SlugRelatedField(read_only=True, slug_field='name')
 
     class Meta:
@@ -17,9 +17,3 @@ class ReservationSerializer(serializers.ModelSerializer):
             'start_time',
             'end_time',
         )
-
-
-class ReservationIsDoneSerializer(ReservationSerializer):
-
-    class Meta(ReservationSerializer.Meta):
-        fields = ('id',)

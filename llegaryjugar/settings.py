@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'formtools',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE_CLASSES = [

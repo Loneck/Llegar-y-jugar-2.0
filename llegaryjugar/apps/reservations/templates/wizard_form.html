@@ -24,10 +24,9 @@
 			{% endif %}
 			<div></br>
 				{% if wizard.steps.prev %}
-				<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
-				<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
+				<button name="wizard_goto_step" type="submit" class="btn red-btn" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
 				{% endif %}
-				<input type="submit" name="submit" class="btn btn-primary" value="{% trans "next" %}" />
+				<input type="submit" name="submit" class="btn red-btn" value="{% trans "next" %}" />
 			</div>
 			</form></br>
 	</div>
