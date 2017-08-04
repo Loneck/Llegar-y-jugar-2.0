@@ -1,10 +1,9 @@
 from django.db import models
-
 from django.utils.translation import ugettext as _
 from llegaryjugar.apps.base.models import BaseModel
 
 
-class ReservationsStatus(BaseModel):
+class ReservationsStat(BaseModel):
     STATUS_RESERVED, STATUS_CONFIRMED = range(2)
 
     STATUS_CHOICES = (

@@ -5,7 +5,7 @@ from llegaryjugar.apps.base.models import BaseModel
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-class Clubs(BaseModel):
+class Club(BaseModel):
     name = models.CharField(_('name'), max_length=50)
     address = models.CharField(_('address'), max_length=50)
     description = models.TextField(_('description'))

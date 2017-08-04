@@ -4,7 +4,7 @@ from django.utils.translation import ugettext as _
 from llegaryjugar.apps.base.models import BaseModel
 
 
-class CourtStatus(BaseModel):
+class CourtStat(BaseModel):
     STATUS_AVAILABLE, STATUS_NOT_AVAILABLE, STATUS_RESERVED, STATUS_CONFIRMED = range(4)
 
     STATUS_CHOICES = (

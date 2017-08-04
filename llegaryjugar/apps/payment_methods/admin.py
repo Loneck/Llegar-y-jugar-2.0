@@ -1,8 +1,8 @@
 from django.contrib import admin
 from llegaryjugar.apps.base.admin import BaseAdmin
-from .models import PaymentMethods
+from .models import PaymentMethod
 
 
-@admin.register(PaymentMethods)
-class PaymentMethodsAdmin(BaseAdmin):
+@admin.register(PaymentMethod)
+class PaymentMethodAdmin(BaseAdmin):
     list_display = ('name', 'status')

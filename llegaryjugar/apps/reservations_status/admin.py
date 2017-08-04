@@ -1,8 +1,8 @@
 from django.contrib import admin
 from llegaryjugar.apps.base.admin import BaseAdmin
-from .models import ReservationsStatus
+from .models import ReservationsStat
 
 
-@admin.register(ReservationsStatus)
-class ReservationsStatusAdmin(BaseAdmin):
+@admin.register(ReservationsStat)
+class ReservationsStatAdmin(BaseAdmin):
     list_display = ('status',)

@@ -4,7 +4,7 @@ from django.db import models
 # from django.dispatch import receiver
 from django.utils.translation import ugettext as _
 from llegaryjugar.apps.base.models import BaseModel
-from llegaryjugar.apps.courts.models import Courts
+from llegaryjugar.apps.courts.models import Court
 from llegaryjugar.apps.dates.models import Day, Month, Hour
 from datetime import datetime, timedelta, date
 # import django.dispatch
@@ -13,19 +13,19 @@ from datetime import datetime, timedelta, date
 
 
 class Schedule(BaseModel):
-    court = models.ForeignKey(Courts, related_name='court', verbose_name=_('court'))
+    court = models.ForeignKey(Court, related_name='court_sche', verbose_name=_('court'))
     price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
     date = models.DateField(_("Date"), default=date.today)
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
 
     def __str__(self):
-        return '%s %s' % (self.court, self.date)
+        return '%s %s' % (self.start_time, self.end_time)
 
 
 class SchedulesCreate(BaseModel):
     author = models.ForeignKey('auth.User')
-    court = models.ForeignKey(Courts, related_name='court_sche_create', verbose_name=_('court'), default="Sin asignar")
+    court = models.ForeignKey(Court, related_name='court_sche_create', verbose_name=_('court'), default="Sin asignar")
     price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
     day = models.ManyToManyField(Day, related_name='day_create', verbose_name=_('day'))
     month = models.ManyToManyField(Month, related_name='month_create', verbose_name=_('month'))
@@ -70,6 +70,9 @@ class SchedulesCreate(BaseModel):
     def save(self, *args, **kwargs):
         self.create_schedules()
         super(SchedulesCreate, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return '%s %s' % (self.author, self.court)
     # def save_related(self, request, form, formsets, change):
     #     super(SchedulesCreate, self).save_related(request, form, formsets, change)
     #     m2m_post_save.send(sender=self.__class__, instance=form.instance)

@@ -1,13 +1,13 @@
 from django.shortcuts import render_to_response
 from formtools.wizard.views import SessionWizardView
-from llegaryjugar.apps.reservations.forms import ClubForm, ScheduleForm, PaymentForm
+from llegaryjugar.apps.reservations.forms import ClubForm, ScheduleForm, ServicesForm, PaymentForm
 from llegaryjugar.apps.reservations.models import Reservation
 
 
 # Create your views here.
 class StepWizard(SessionWizardView):
     template_name = 'wizard_form.html'
-    form_list = [ClubForm, ScheduleForm, PaymentForm]
+    form_list = [ClubForm, ScheduleForm, ServicesForm, PaymentForm]
     instance = None
     price = None
 
@@ -28,7 +28,6 @@ class StepWizard(SessionWizardView):
         return self.instance
 
     def done(self, form_list, **kwargs):
-
         data = {}
         for form in form_list:
             data.update(form.cleaned_data)

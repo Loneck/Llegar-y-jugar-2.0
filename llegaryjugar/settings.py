@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'phonenumber_field',
     'formtools',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -98,7 +99,7 @@ REGISTRATION_AUTO_LOGIN = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'llegayjuga',
+        'NAME': 'lleyju',
         'USER': 'loneck',
         'PASSWORD': '1q2w3e4r',
         'HOST': 'localhost',
@@ -142,11 +143,20 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.mailgun.org')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'a122e7a2f849fdb9e3bff86576f0ba49')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'postmaster@sandbox5b8471a7fd5444e9bd23c004ee7bbb7f.mailgun.org')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+EMAIL_SUBJECT_PREFIX = os.getenv('EMAIL_SUBJECT_PREFIX', '')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'False') == 'True'
+
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'no-reply@llegaryjugar.cl')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = os.getenv('STATIC_URL', '/static/')
-MEDIA_ROOT = os.getenv('MEDIA_ROOT', os.path.join(BASE_DIR, '/media'))
+MEDIA_ROOT = os.getenv('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
 STATIC_ROOT = os.getenv('STATIC_ROOT', os.path.join(BASE_DIR, 'static'))

@@ -15,21 +15,27 @@
 						<thead>
 							<tr>
 								<th>Recinto</th>
-								<th>Horario</th>
+								<th>Cancha</th>
+								<th>Horario</th>								
+								<th>Servicio</th>
 								<th>Precio</th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
 								<th>Recinto</th>
+								<th>Cancha</th>
 								<th>Horario</th>
+								<th>Servicio</th>
 								<th>Precio</th>
 							</tr>
 						</tfoot>
 						<tbody>	
 							<tr>
 								<td>{{ reservation.club }}</td>
+								<td>{{ reservation.court }}</td>
 								<td>{{ reservation.schedule }}</td>
+								<td>{{ reservation.service }}</td>
 								<td>{{ reservation.price }}</td>
 							</tr>
 						</tbody>

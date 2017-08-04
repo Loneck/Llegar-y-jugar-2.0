@@ -8,27 +8,29 @@
 			<h2>Rental</h2>
 			<div class="separator"></div>
 		</div>	
-			<div class="row">
-				<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-				<form method="post" enctype="multipart/form-data">
-				{% csrf_token %}
-				{{ wizard.form.media }}
-				{{ wizard.management_form }}
-				{% if wizard.form.forms %}
-				    {{ wizard.form.management_form }}
-				    {% for form in wizard.form.forms %}
-				        {{ form }}
-				    {% endfor %}
-				{% else %}
-				    {{ wizard.form }}
-				{% endif %}
-
+		<div class="row">
+			<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+			<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ wizard.form.media }}
+			{{ wizard.management_form }}
+			{% if wizard.form.forms %}
+			    {{ wizard.form.management_form }}
+			    {% for form in wizard.form.forms %}
+			        {{ form }}
+			    {% endfor %}
+			{% else %}
+			    {{ wizard.form }}
+			{% endif %}
+			<div></br>
 				{% if wizard.steps.prev %}
 				<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
 				<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
 				{% endif %}
 				<input type="submit" name="submit" class="btn btn-primary" value="{% trans "next" %}" />
-				</form>
+			</div>
+			</form></br>
 	</div>
+</div>
 </section>
 {% endblock %}

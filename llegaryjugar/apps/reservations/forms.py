@@ -1,6 +1,7 @@
 from django import forms
 from llegaryjugar.apps.schedules.models import Schedule
 from llegaryjugar.apps.reservations.models import Reservation
+from llegaryjugar.apps.services.models import Service
 
 
 class ClubForm(forms.ModelForm):
@@ -21,17 +22,17 @@ class ScheduleForm(ClubForm):
         self.fields['schedule'].queryset = Schedule.objects.filter(court__club=self.club)
 
     class Meta(ClubForm.Meta):
-        fields = ('schedule',)
+        fields = ('schedule', 'court')
 
 
-# class AccesorieForm(ClubForm):
+class ServicesForm(ClubForm):
 
-#     def __init__(self, *args, **kwargs):
-#         super(AccesorieForm, self).__init__(*args, **kwargs)
-#         self.fields['accesorie'].queryset = Accesorie.objects.filter(club=self.club)
+    def __init__(self, *args, **kwargs):
+        super(ServicesForm, self).__init__(*args, **kwargs)
+        self.fields['service'].queryset = Service.objects.filter(club=self.club)
 
-#     class Meta(ClubForm.Meta):
-#         fields = ('accesorie',)
+    class Meta(ClubForm.Meta):
+        fields = ('service',)
 
 
 class PaymentForm(forms.ModelForm):

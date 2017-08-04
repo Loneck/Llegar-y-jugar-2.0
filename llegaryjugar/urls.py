@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^schedules/', include('llegaryjugar.apps.schedules.urls')),
     url(r'^reservation/', include('llegaryjugar.apps.reservations.urls')),
     url(r'^accounts/', include('llegaryjugar.accounts.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:
