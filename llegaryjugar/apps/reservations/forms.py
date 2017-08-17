@@ -22,7 +22,7 @@ class ScheduleForm(ClubForm):
         self.fields['schedule'].queryset = Schedule.objects.filter(court__club=self.club)
 
     class Meta(ClubForm.Meta):
-        fields = ('schedule', 'court')
+        fields = ('court', 'schedule',)
 
 
 class ServicesForm(ClubForm):

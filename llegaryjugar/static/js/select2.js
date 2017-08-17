@@ -1,7 +1,8 @@
 var courtId;
 $("#id_1-court").on("change", function(){
-  loadSchedules($(courtId).val());
-  console.log("this is the court id: " + courtId)
+  courtId = $(this).val();
+  console.log("this is the court id: " + courtId);
+  loadSchedules(courtId);
 });
 
 function loadSchedules(courtId) {
