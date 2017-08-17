@@ -5,7 +5,7 @@ from llegaryjugar.apps.schedules.models import Schedule
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
-    court = serializers.SlugRelatedField(read_only=True, slug_field='name')
+    court = serializers.ReadOnlyField(source='court.name')
 
     class Meta:
         model = Schedule
