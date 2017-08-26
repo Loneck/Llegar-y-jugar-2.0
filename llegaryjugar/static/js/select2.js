@@ -19,7 +19,7 @@ function loadSchedules(courtId) {
           location = data[i];
           var text = location.id + ' ' + location.court;
           results.push({
-            id: location.court,
+            id: location.id,
             text: text
           });
         }
