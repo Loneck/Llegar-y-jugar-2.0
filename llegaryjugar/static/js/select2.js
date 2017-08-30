@@ -1,14 +1,18 @@
 var courtId;
+var courtDate;
 $("#id_1-court").on("change", function(){
   courtId = $(this).val();
   console.log("this is the court id: " + courtId);
   loadSchedules(courtId);
 });
 
+courtDate = $("#id_1-date").datepicker("getDate");
+console.log($.datepicker.formatDate("yy-mm-dd", courtDate));
+
 function loadSchedules(courtId) {
     $("#id_1-schedule").select2({
     ajax: {
-      url: "/reservation/api/v1/schedule/?court=" + courtId,
+      url: "/reservation/api/v1/schedule/?court=" + courtId + "&date=",
       dataType: "json",
       delay: 250,
       processResults: function(data, params) {

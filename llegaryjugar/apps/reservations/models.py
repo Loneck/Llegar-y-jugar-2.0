@@ -19,5 +19,5 @@ class Reservation(BaseModel):
     payment = models.ForeignKey(PaymentMethod, related_name='res_payment', verbose_name=_('payment'), default=1)
     service = models.ForeignKey(Service, related_name='res_service', verbose_name=_('service'))
     price = models.DecimalField(_('price'), decimal_places=2, max_digits=30, null=True)
-    status = models.ForeignKey(ReservationsStat, related_name='res_reservationsStatus', verbose_name=_('reservationsStatus'), default=1)
-    createdDate = models.DateTimeField(default=timezone.now)
+    status = models.ForeignKey(ReservationsStat, related_name='res_reservationsStatus', verbose_name=_('reservations Status'), default=1)
+    createdDate = models.DateTimeField(default=timezone.now, verbose_name=_('created Date'))

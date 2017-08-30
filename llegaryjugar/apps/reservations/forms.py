@@ -16,13 +16,14 @@ class ClubForm(forms.ModelForm):
 
 
 class ScheduleForm(ClubForm):
+    date = forms.DateField()
 
     def __init__(self, *args, **kwargs):
         super(ScheduleForm, self).__init__(*args, **kwargs)
         self.fields['schedule'].queryset = Schedule.objects.filter(court__club=self.club)
 
     class Meta(ClubForm.Meta):
-        fields = ('court', 'schedule',)
+        fields = ('court', 'schedule', )
 
 
 class ServicesForm(ClubForm):

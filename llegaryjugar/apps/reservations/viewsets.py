@@ -11,7 +11,7 @@ class ScheduleViewSet(viewsets.ReadOnlyModelViewSet,):
     model = Schedule
     serializer_class = ScheduleSerializer
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('court',)
+    filter_fields = ('court', 'date')
 
     def get_queryset(self):
         return Schedule.objects.all()
