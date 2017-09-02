@@ -13,9 +13,20 @@ from datetime import datetime, timedelta, date
 
 
 class Schedule(BaseModel):
-    court = models.ForeignKey(Court, related_name='court_sche', verbose_name=_('court'))
-    price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
-    date = models.DateField(_("Date"), default=date.today)
+    court = models.ForeignKey(
+        Court,
+        related_name='court_sche',
+        verbose_name=_('court'),
+    )
+    price = models.DecimalField(
+        _('price'),
+        decimal_places=2,
+        max_digits=30,
+    )
+    date = models.DateField(
+        _('Date'),
+        default=date.today
+    )
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
 
@@ -24,13 +35,26 @@ class Schedule(BaseModel):
 
 
 class SchedulesCreate(BaseModel):
-    author = models.ForeignKey('auth.User')
-    court = models.ForeignKey(Court, related_name='court_sche_create', verbose_name=_('court'), default="Sin asignar")
+    author = models.ForeignKey(
+        'auth.User',
+        related_name='schedule_court',
+        verbose_name=_('author'),
+    )
+    court = models.ForeignKey(
+        Court,
+        related_name='court_sche_create',
+        verbose_name=_('court'),
+        null=True,
+    )
     price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
-    day = models.ManyToManyField(Day, related_name='day_create', verbose_name=_('day'))
-    month = models.ManyToManyField(Month, related_name='month_create', verbose_name=_('month'))
-    start_time = models.ForeignKey(Hour, related_name='start_time_hour', default=True)
-    end_time = models.ForeignKey(Hour, related_name='end_time_hour', default=True)
+    day = models.ManyToManyField(
+        Day, related_name='day_create', verbose_name=_('day'))
+    month = models.ManyToManyField(
+        Month, related_name='month_create', verbose_name=_('month'))
+    start_time = models.ForeignKey(
+        Hour, related_name='start_time_hour', default=True)
+    end_time = models.ForeignKey(
+        Hour, related_name='end_time_hour', default=True)
 
     def day_in_month(self):
         days = self.day.values_list('day', flat=True)
@@ -65,7 +89,8 @@ class SchedulesCreate(BaseModel):
         for start_time, end_time in zip(schedule_list, schedule_list[1:]):
             start = start_time
             end = end_time
-            Schedule.objects.create(price=price, start_time=start, end_time=end, court=court)
+            Schedule.objects.create(
+                price=price, start_time=start, end_time=end, court=court)
 
     def save(self, *args, **kwargs):
         self.create_schedules()
