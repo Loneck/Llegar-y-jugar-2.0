@@ -25,7 +25,7 @@ SECRET_KEY = '7+^%#$mct-_ln7f$n6vaosr!0jh$a+*_w%4@6!&h5a=n-hx#ka'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -144,15 +144,19 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_BACKEND = os.getenv(
+    'EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.mailgun.org')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'a122e7a2f849fdb9e3bff86576f0ba49')
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'postmaster@sandbox5b8471a7fd5444e9bd23c004ee7bbb7f.mailgun.org')
+EMAIL_HOST_PASSWORD = os.getenv(
+    'EMAIL_HOST_PASSWORD', 'a122e7a2f849fdb9e3bff86576f0ba49')
+EMAIL_HOST_USER = os.getenv(
+    'EMAIL_HOST_USER', 'postmaster@sandbox5b8471a7fd5444e9bd23c004ee7bbb7f.mailgun.org')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
 EMAIL_SUBJECT_PREFIX = os.getenv('EMAIL_SUBJECT_PREFIX', '')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'False') == 'True'
 
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'no-reply@llegaryjugar.cl')
+DEFAULT_FROM_EMAIL = os.getenv(
+    'DEFAULT_FROM_EMAIL', 'no-reply@llegaryjugar.cl')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
