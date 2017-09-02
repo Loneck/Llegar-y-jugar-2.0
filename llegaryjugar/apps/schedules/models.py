@@ -33,7 +33,7 @@ class Schedule(BaseModel):
         _('end time'),
     )
 
-    def __str__(self):
+    def __unicode__(self):
         return '{} {}'.format(
             self.start_time,
             self.end_time,
@@ -112,10 +112,6 @@ class SchedulesCreate(BaseModel):
             end = end_time
             Schedule.objects.create(
                 price=price, start_time=start, end_time=end, court=court)
-
-    def save(self, *args, **kwargs):
-        save = super(SchedulesCreate, self).save(*args, **kwargs)
-        return save
 
     def __unicode__(self):
         return '{} {}'.format(
