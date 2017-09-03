@@ -7,11 +7,11 @@ import calendar
 
 
 class Month(BaseModel):
-    MONTH_CHOICES = [(str(i), calendar.month_name[i]) for i in range(1, 13)]
+    MONTH_CHOICES = [(i, calendar.month_name[i]) for i in range(1, 13)]
 
-    month = models.CharField(
-        max_length=9,
+    month = models.PositiveSmallIntegerField(
         choices=MONTH_CHOICES,
+        unique=True,
     )
 
     def __unicode__(self):
@@ -40,6 +40,7 @@ class Day(BaseModel):
     day = models.PositiveIntegerField(
         _('day'),
         choices=DAY_CHOICES,
+        unique=True,
     )
 
     def __unicode__(self):
