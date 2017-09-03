@@ -129,6 +129,6 @@ class SchedulesCreate(BaseModel):
     sender=SchedulesCreate.month.through,
     dispatch_uid='day_schedule_create')
 def day_schedule_create(sender, instance, action, *args, **kwargs):
-    if (action == 'post_add'and
+    if (action == 'post_add' and
             instance.day.exists() and instance.month.exists()):
         instance.create_schedules()
