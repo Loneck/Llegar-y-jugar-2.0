@@ -9,14 +9,24 @@ import calendar
 class Month(BaseModel):
     MONTH_CHOICES = [(str(i), calendar.month_name[i]) for i in range(1, 13)]
 
-    month = models.CharField(max_length=9, choices=MONTH_CHOICES, default='1')
+    month = models.CharField(
+        max_length=9,
+        choices=MONTH_CHOICES,
+    )
 
     def __unicode__(self):
         return u'%s' % (self.get_month_display())
 
 
 class Day(BaseModel):
-    DAY_MONDAY, DAY_TUESDAY, DAY_WEDNESDAY, DAY_THURSDAY, DAY_FRIDAY, DAY_SATURDAY, DAY_SUNDAY = range(1, 8)
+    (DAY_MONDAY,
+     DAY_TUESDAY,
+     DAY_WEDNESDAY,
+     DAY_THURSDAY,
+     DAY_FRIDAY,
+     DAY_SATURDAY,
+     DAY_SUNDAY) = range(0, 7)
+
     DAY_CHOICES = (
         (DAY_MONDAY, _(u'Monday')),
         (DAY_TUESDAY, _(u'Tuesday')),
@@ -27,14 +37,41 @@ class Day(BaseModel):
         (DAY_SUNDAY, _(u'Sunday'))
     )
 
-    day = models.PositiveIntegerField(_('day'), choices=DAY_CHOICES, default='1')
+    day = models.PositiveIntegerField(
+        _('day'),
+        choices=DAY_CHOICES,
+    )
 
     def __unicode__(self):
         return u'%s' % (self.get_day_display())
 
 
 class Hour(BaseModel):
-    ONE_HOUR, TWO_HOUR, THREE_HOUR, FOUR_HOUR, FIVE_HOUR, SIX_HOUR, SEVEN_HOUR, EIGHT_HOUR, NINE_HOUR, TEN_HOUR, ELEVEN_HOUR, TWELVE_HOUR, THIRTEEN_HOUR, FOURTENN_HOUR, FIFTEEN_HOUR, SIXTEEN_HOUR, SEVENTEEN_HOUR, EIGHTEEN_HOUR, NINETEEN_HOUR, TWENTY_HOUR, TWENTY_ONE_HOUR, TWENTY_TWO_HOUR, TWENTY_THREE_HOUR, TWENTY_FOUR_HOUR = range(1, 25)
+    (ONE_HOUR,
+     TWO_HOUR,
+     THREE_HOUR,
+     FOUR_HOUR,
+     FIVE_HOUR,
+     SIX_HOUR,
+     SEVEN_HOUR,
+     EIGHT_HOUR,
+     NINE_HOUR,
+     TEN_HOUR,
+     ELEVEN_HOUR,
+     TWELVE_HOUR,
+     THIRTEEN_HOUR,
+     FOURTENN_HOUR,
+     FIFTEEN_HOUR,
+     SIXTEEN_HOUR,
+     SEVENTEEN_HOUR,
+     EIGHTEEN_HOUR,
+     NINETEEN_HOUR,
+     TWENTY_HOUR,
+     TWENTY_ONE_HOUR,
+     TWENTY_TWO_HOUR,
+     TWENTY_THREE_HOUR,
+     TWENTY_FOUR_HOUR) = range(1, 25)
+
     HOUR_CHOICES = (
         (ONE_HOUR, _(u'01:00')),
         (TWO_HOUR, _(u'02:00')),
@@ -61,7 +98,11 @@ class Hour(BaseModel):
         (TWENTY_THREE_HOUR, _(u'23:00')),
         (TWENTY_FOUR_HOUR, _(u'24:00'))
     )
-    hour = models.PositiveIntegerField(_('hour'), choices=HOUR_CHOICES, default='1')
+
+    hour = models.PositiveIntegerField(
+        _('hour'),
+        choices=HOUR_CHOICES,
+    )
 
     def __unicode__(self):
         return u'%s' % (self.get_hour_display())

@@ -106,12 +106,15 @@ class SchedulesCreate(BaseModel):
 
         price = self.price
         court = self.court
-
         for start_time, end_time in zip(schedule_list, schedule_list[1:]):
             start = start_time
             end = end_time
             Schedule.objects.create(
-                price=price, start_time=start, end_time=end, court=court)
+                price=price,
+                court=court,
+                start_time=start,
+                end_time=end,
+            )
 
     def __unicode__(self):
         return '{} {}'.format(
